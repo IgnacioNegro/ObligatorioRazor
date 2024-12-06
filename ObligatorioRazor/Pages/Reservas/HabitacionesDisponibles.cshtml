@@ -1,0 +1,55 @@
+﻿@page
+@model ObligatorioRazor.Pages.Reservas.HabitacionesDisponiblesModel
+@{
+    ViewData["Title"] = "Habitaciones Disponibles";
+}
+
+<h2 class="text-danger fw-bold">Buscar Habitaciones Disponibles</h2>
+
+<form method="get">
+    <div class="mb-3">
+        <label for="fechaInicio" class="form-label">Fecha de Inicio:</label>
+        <input type="date"
+               id="fechaInicio"
+               name="fechaInicio"
+               class="form-control"
+               value="@Model.FechaInicio?.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="mb-3">
+        <label for="fechaSalida" class="form-label">Fecha de Salida:</label>
+        <input type="date"
+               id="fechaSalida"
+               name="fechaSalida"
+               class="form-control"
+               value="@Model.FechaSalida?.ToString("yyyy-MM-dd")" />
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+@if (Model.Habitaciones != null && Model.Habitaciones.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var habitacion in Model.Habitaciones)
+            {
+                <tr>
+                    <td>@habitacion.HabitacionId</td>
+                    <td>@habitacion.Tipo</td>
+                    <td>@habitacion.Precio</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Seleccione una fecha para filtrar las habitaciones disponibles.</p>
+}

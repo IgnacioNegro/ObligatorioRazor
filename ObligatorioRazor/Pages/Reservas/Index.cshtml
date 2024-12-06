@@ -1,0 +1,77 @@
+﻿@page
+@model ObligatorioRazor.Pages.Reservas.ReservasModel
+@{
+    ViewData["Title"] = "Lista de Reservas";
+}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2 class="text-danger fw-bold">Lista de Reservas</h2>
+            </div>
+            <div class="col-sm-6 text-end">
+                <a asp-page="Crear" class="btn btn-primary">Crear nueva reserva</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        @if (Model.Reservas.Count() > 0)
+        {
+            <br /> <br />
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(m => m.Reservas.First().IDReserva)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Reservas.First().FechaInicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Reservas.First().FechaFin)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Reservas.First().EmailCliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Reservas.First().EstaPagada)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Número de Habitación")
+                    </th>
+                    <th>
+                        Usuario
+                    </th>
+                    <th>
+                        <!-- Nueva columna para los botones -->
+                        Acciones
+                    </th>
+                </tr>
+                @foreach (var reserva in Model.Reservas)
+                {
+                    <tr>
+                        <td>@reserva.IDReserva</td>
+                        <td>@reserva.FechaInicio.ToShortDateString()</td>
+                        <td>@reserva.FechaFin.ToShortDateString()</td>
+                        <td>@reserva.EmailCliente</td>
+                        <td>@(reserva.EstaPagada ? "Sí" : "No")</td>
+                        <td>@reserva.Habitacion.HabitacionId</td> <!-- Relación con la entidad habitación -->
+                        <td>@(reserva.Usuario != null ? reserva.Usuario.Nombre : "Usuario no disponible")</td>
+                        <td>
+                            <!-- Celda de botones -->
+                            <a asp-page="./Editar" asp-route-id="@reserva.IDReserva" class="btn btn-sm btn-primary">Editar</a>
+                            <form method="post" asp-page-handler="Borrar" style="display:inline;">
+                                <input type="hidden" name="id" value="@reserva.IDReserva" />
+                                <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No hay reservas disponibles</p>
+        }
+    </div>
+</div>

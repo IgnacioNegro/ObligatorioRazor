@@ -1,0 +1,82 @@
+﻿@page
+@model ObligatorioRazor.Pages.Reservas.EditarModel
+@{
+    ViewData["Title"] = "Editar Reserva";
+}
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-info">Editar nueva Reserva</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Reserva.IDReserva" />
+
+            <!-- Fecha Inicio -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Reserva.FechaInicio">Fecha Inicio</label>
+                <div class="col-sm-6">
+                    <input asp-for="Reserva.FechaInicio" class="form-control mb-2" />
+                    <span asp-validation-for="Reserva.FechaInicio" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- Fecha Fin -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Reserva.FechaFin">Fecha Fin</label>
+                <div class="col-sm-6">
+                    <input asp-for="Reserva.FechaFin" class="form-control mb-2" />
+                    <span asp-validation-for="Reserva.FechaFin" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- Habitacion ID -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Reserva.HabitacionId">Habitación</label>
+                <div class="col-sm-6">
+                    <select asp-for="Reserva.HabitacionId"
+                            asp-items="Model.HabitacionesDisponibles"
+                            class="form-control mb-2">
+                    </select>
+                    <span asp-validation-for="Reserva.HabitacionId" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- Email Cliente -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Reserva.EmailCliente">Correo Electrónico</label>
+                <div class="col-sm-6">
+                    <input asp-for="Reserva.EmailCliente" class="form-control mb-2" />
+                    <span asp-validation-for="Reserva.EmailCliente" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- Estado de Pago -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Reserva.EstaPagada">¿Está Pagada?</label>
+                <div class="col-sm-6">
+                    <input asp-for="Reserva.EstaPagada" class="form-check-input" type="checkbox" />
+                    <span asp-validation-for="Reserva.EstaPagada" class="text-danger"></span>
+                </div>
+            </div>
+            <!-- Usuario ID -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Reserva.UsuarioId">Elegir Usuario</label>
+                <div class="col-sm-6">
+                    <select asp-for="Reserva.UsuarioId" asp-items="Model.UsuariosDisponibles" class="form-control mb-2"></select>
+                    <span asp-validation-for="Reserva.UsuarioId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="form-group row">
+                <div class="col-sm-6 offset-sm-2">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Editar" class="btn btn-primary btn-block" />
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <a asp-page="Index" class="btn btn-danger">Volver a la lista</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

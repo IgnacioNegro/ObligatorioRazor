@@ -1,0 +1,71 @@
+﻿@page
+@model ObligatorioRazor.Pages.Reservas.EstadisticasModel;
+@{
+}
+
+<h2 class="text-danger fw-bold">Habitaciones mas reservadas</h2>
+
+@if (Model.HabitacionesMasReservadas.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Habitación N°</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Número de Reservas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var habitacion in Model.HabitacionesMasReservadas)
+            {
+                
+                var conteoReservas = Model._contexto.Reservas.Count(r => r.HabitacionId == habitacion.HabitacionId);
+                
+                <tr>
+                    <td>@habitacion.HabitacionId</td>
+                    <td>@habitacion.Tipo</td>
+                    <td>@habitacion.Precio.ToString("C")</td>
+                    <td>@conteoReservas</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay habitaciones con más de 1 reserva.</p>
+}
+
+<h2 class="text-danger fw-bold">Usuarios que mas reservaron</h2>
+
+@if (Model.UsuariosMasReservaron.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Número de Reservas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model.UsuariosMasReservaron)
+            {
+                // Contar las reservas para cada usuario
+                var conteoReservasUsuario = Model._contexto.Reservas.Count(r => r.UsuarioId == usuario.Id);
+
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    
+                    <td>@conteoReservasUsuario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay usuarios con más de 1 reserva.</p>
+}
