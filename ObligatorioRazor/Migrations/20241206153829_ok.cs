@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ObligatorioRazor.Migrations
 {
-    public partial class nuevouser : Migration
+    public partial class ok : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,6 @@ namespace ObligatorioRazor.Migrations
                     HabitacionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EstaDisponible = table.Column<bool>(type: "bit", nullable: false),
                     Precio = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -70,18 +69,18 @@ namespace ObligatorioRazor.Migrations
 
             migrationBuilder.InsertData(
                 table: "Habitacion",
-                columns: new[] { "HabitacionId", "EstaDisponible", "Precio", "Tipo" },
+                columns: new[] { "HabitacionId", "Precio", "Tipo" },
                 values: new object[,]
                 {
-                    { 1, false, 100, "Single" },
-                    { 2, false, 150, "Double" },
-                    { 3, false, 90, "Single" },
-                    { 4, false, 90, "Single" },
-                    { 5, false, 160, "Double" },
-                    { 6, false, 400, "Suite Deluxe" },
-                    { 7, false, 85, "Single" },
-                    { 8, false, 155, "Double" },
-                    { 9, false, 500, "Suite Premium" }
+                    { 1, 100, "Single" },
+                    { 2, 150, "Double" },
+                    { 3, 90, "Single" },
+                    { 4, 90, "Single" },
+                    { 5, 160, "Double" },
+                    { 6, 400, "Suite Deluxe" },
+                    { 7, 85, "Single" },
+                    { 8, 155, "Double" },
+                    { 9, 500, "Suite Premium" }
                 });
 
             migrationBuilder.InsertData(
@@ -106,16 +105,16 @@ namespace ObligatorioRazor.Migrations
                 columns: new[] { "ReservaID", "EmailCliente", "EstaPagada", "FechaFin", "FechaInicio", "FechaReserva", "HabitacionId", "UsuarioId" },
                 values: new object[,]
                 {
-                    { 1, "juan.perez@gmail.com", true, new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
-                    { 2, "maria.lopez@gmail.com", false, new DateTime(2024, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 2, 2 },
-                    { 3, "carlos.rodriguez@gmail.com", true, new DateTime(2024, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 3, 3 },
-                    { 4, "fernando.bonilla@gmail.com", true, new DateTime(2024, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 4, 4 },
-                    { 5, "nelson.gonzalez@gmail.com", false, new DateTime(2024, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 5, 5 },
-                    { 6, "ana.garcia@gmail.com", true, new DateTime(2024, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 6, 6 },
-                    { 7, "luis.sanchez@gmail.com", true, new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 7, 7 },
-                    { 8, "elena.martinez@gmail.com", false, new DateTime(2024, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 8, 8 },
-                    { 9, "david.fernandez@gmail.com", true, new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 9, 9 },
-                    { 10, "sofia.gonzalez@gmail.com", false, new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local), 5, 10 }
+                    { 1, "juan.perez@gmail.com", true, new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 1, 1 },
+                    { 2, "maria.lopez@gmail.com", false, new DateTime(2024, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 2, 2 },
+                    { 3, "carlos.rodriguez@gmail.com", true, new DateTime(2024, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 3, 3 },
+                    { 4, "fernando.bonilla@gmail.com", true, new DateTime(2024, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 4, 4 },
+                    { 5, "nelson.gonzalez@gmail.com", false, new DateTime(2024, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 5, 5 },
+                    { 6, "ana.garcia@gmail.com", true, new DateTime(2024, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 6, 6 },
+                    { 7, "luis.sanchez@gmail.com", true, new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 7, 7 },
+                    { 8, "elena.martinez@gmail.com", false, new DateTime(2024, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 8, 8 },
+                    { 9, "david.fernandez@gmail.com", true, new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 9, 9 },
+                    { 10, "sofia.gonzalez@gmail.com", false, new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local), 5, 10 }
                 });
 
             migrationBuilder.CreateIndex(

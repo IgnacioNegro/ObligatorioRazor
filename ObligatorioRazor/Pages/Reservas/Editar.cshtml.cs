@@ -93,8 +93,9 @@ namespace ObligatorioRazor.Pages.Reservas
             reservaExistente.UsuarioId = Reserva.UsuarioId;
 
             // Guardar los cambios
-            _contexto.Update(reservaExistente);
+            _contexto.Attach(reservaExistente).State = EntityState.Modified;
             await _contexto.SaveChangesAsync();
+
             return RedirectToPage("./Index");
         }
 

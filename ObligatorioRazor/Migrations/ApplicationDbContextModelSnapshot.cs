@@ -30,9 +30,6 @@ namespace ObligatorioRazor.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HabitacionId"), 1L, 1);
 
-                    b.Property<bool>("EstaDisponible")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Precio")
                         .HasColumnType("int");
 
@@ -48,63 +45,54 @@ namespace ObligatorioRazor.Migrations
                         new
                         {
                             HabitacionId = 1,
-                            EstaDisponible = false,
                             Precio = 100,
                             Tipo = "Single"
                         },
                         new
                         {
                             HabitacionId = 2,
-                            EstaDisponible = false,
                             Precio = 150,
                             Tipo = "Double"
                         },
                         new
                         {
                             HabitacionId = 3,
-                            EstaDisponible = false,
                             Precio = 90,
                             Tipo = "Single"
                         },
                         new
                         {
                             HabitacionId = 4,
-                            EstaDisponible = false,
                             Precio = 90,
                             Tipo = "Single"
                         },
                         new
                         {
                             HabitacionId = 5,
-                            EstaDisponible = false,
                             Precio = 160,
                             Tipo = "Double"
                         },
                         new
                         {
                             HabitacionId = 6,
-                            EstaDisponible = false,
                             Precio = 400,
                             Tipo = "Suite Deluxe"
                         },
                         new
                         {
                             HabitacionId = 7,
-                            EstaDisponible = false,
                             Precio = 85,
                             Tipo = "Single"
                         },
                         new
                         {
                             HabitacionId = 8,
-                            EstaDisponible = false,
                             Precio = 155,
                             Tipo = "Double"
                         },
                         new
                         {
                             HabitacionId = 9,
-                            EstaDisponible = false,
                             Precio = 500,
                             Tipo = "Suite Premium"
                         });
@@ -157,7 +145,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = true,
                             FechaFin = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 1,
                             UsuarioId = 1
                         },
@@ -168,7 +156,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = false,
                             FechaFin = new DateTime(2024, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 2,
                             UsuarioId = 2
                         },
@@ -179,7 +167,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = true,
                             FechaFin = new DateTime(2024, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 3,
                             UsuarioId = 3
                         },
@@ -190,7 +178,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = true,
                             FechaFin = new DateTime(2024, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 4,
                             UsuarioId = 4
                         },
@@ -201,7 +189,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = false,
                             FechaFin = new DateTime(2024, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 5,
                             UsuarioId = 5
                         },
@@ -212,7 +200,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = true,
                             FechaFin = new DateTime(2024, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 6,
                             UsuarioId = 6
                         },
@@ -223,7 +211,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = true,
                             FechaFin = new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 7,
                             UsuarioId = 7
                         },
@@ -234,7 +222,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = false,
                             FechaFin = new DateTime(2024, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 8,
                             UsuarioId = 8
                         },
@@ -245,7 +233,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = true,
                             FechaFin = new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 9,
                             UsuarioId = 9
                         },
@@ -256,7 +244,7 @@ namespace ObligatorioRazor.Migrations
                             EstaPagada = false,
                             FechaFin = new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FechaInicio = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FechaReserva = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            FechaReserva = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             HabitacionId = 5,
                             UsuarioId = 10
                         });

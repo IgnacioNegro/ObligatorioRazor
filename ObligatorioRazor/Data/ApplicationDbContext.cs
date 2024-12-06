@@ -18,14 +18,13 @@ namespace ObligatorioRazor.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configurar la relación entre Reserva y Usuario (uno a muchos)
             modelBuilder.Entity<Reserva>()
                 .HasOne(r => r.Usuario)    // Una Reserva tiene un Usuario
                 .WithMany(u => u.Reservas) // Un Usuario puede tener muchas Reservas
-                .HasForeignKey(r => r.UsuarioId)  // La clave foránea en Reserva será UsuarioId
-                .OnDelete(DeleteBehavior.Cascade); // Configurar la acción de eliminación
+                .HasForeignKey(r => r.UsuarioId)  // La clave foránea 
+                .OnDelete(DeleteBehavior.Cascade); // si elimino usuario elimino reservas
 
-            // Precarga de datos de Usuario
+
             modelBuilder.Entity<Usuario>().HasData(
          new Usuario { Id = 1, Nombre = "Juan Pérez" },
          new Usuario { Id = 2, Nombre = "María López" },
